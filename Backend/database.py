@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 
 def get_database():
-    client = MongoClient("mongodb+srv://Nicolas:12345@practica1.cdhav.mongodb.net/")
+    client = MongoClient("Su Database MongoDB")
     return client["cine"]
 
 db = get_database()
