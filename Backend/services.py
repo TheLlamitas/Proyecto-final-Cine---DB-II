@@ -27,10 +27,11 @@ def buy_tickets(user_email, movie_name, schedule, seats):
 
     new_available_seats = movie_schedule['available_seats'] - seats
     Movie.update_movie(
-        movie["_id"], 
-        {"$set": {"schedules.$[elem].available_seats": new_available_seats}}, 
+        movie["_id"],
+        {"$set": {"schedules.$[elem].available_seats": new_available_seats}},
         array_filters=[{"elem.time": schedule}]
     )
+
 
     transaction_details = Transaction.create_transaction(user_email, movie_name, schedule, seats)
 

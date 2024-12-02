@@ -39,15 +39,14 @@ class Movie:
     def get_movies():
         return list(Movie.collection.find())
 
-    def update_movie(movie_id, update_data, array_filters=None):
+    def update_movie(movie_id, update_operation, array_filters=None):
         update_query = {"_id": movie_id}
-        update_operation = {"$set": update_data}
 
         if array_filters:
             result = Movie.collection.update_one(update_query, update_operation, array_filters=array_filters)
         else:
             result = Movie.collection.update_one(update_query, update_operation)
-        
+    
         return result
     
     def delete_movie(movie_id):
@@ -69,6 +68,7 @@ class Transaction:
         transaction_id = result.inserted_id
         transaction_summary = {
             "_id": transaction_id,  
+            "user_email": user_email,
             "movie_name": movie_name,
             "schedule": schedule,  
             "seats": seats,
@@ -82,4 +82,6 @@ class Transaction:
         
         return transaction_summary  
 
+    def get_transaction():
+        return list(Transaction.collection.find())
 
