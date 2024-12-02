@@ -1,9 +1,0 @@
-[
-    {
-        "nombre": "Una Pelicula",
-        "genero": "Accion",
-        "duracion": "120 min",
-        "horario": "5:00 pm - 7:00 pm",
-        "disponibilidad": 25
-    }
-]
